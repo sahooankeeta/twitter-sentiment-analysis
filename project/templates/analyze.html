@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="title">Welcome,{{ name }}!</h1>
+<form method="POST" action="/analyze" class="form">
+  <div class="field">
+    <div class="control">
+      <input
+        class="input is-large"
+        type="text"
+        name="keyword"
+        placeholder="keyword"
+        autofocus=""
+      />
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <input
+        class="input is-large"
+        type="number"
+        name="tweets"
+        placeholder="count of tweets"
+      />
+    </div>
+  </div>
+
+  <button class="button is-block is-info is-large form-btn">Analyze</button>
+</form>
+{% if showResults %}
+
+<div class="mt-100" style="padding-top: 100px; text-align: center">
+  <h2 class="subtitle">On analyzing {{tweets}} tweets with keyword {{keyword}}</h2>
+  <img src="/static/images/plot1.png" />
+</div>
+{%endif%} {% endblock %}
